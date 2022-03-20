@@ -1,0 +1,9 @@
+[init]
+	defaultBranch = main
+[alias]
+	l = log --pretty=format:\"%C(bold yellow)%h %C(auto)%s %C(italic green)- %an %C(italic blue)%aD\"
+	lg = log --pretty=format:\"%C(bold yellow)%h %C(auto)%s %C(italic green)- %an %C(italic blue)%aD\"
+	s = status -s
+	st = status -s
+	stat = status -s
+	stats = status -s

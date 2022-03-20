@@ -1,0 +1,6 @@
+! rebind right control key to Mod3
+
+clear control
+add control = Control_L
+clear Mod3
+add Mod3 = Control_R

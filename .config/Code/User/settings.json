@@ -1,0 +1,7 @@
+{
+    "editor.fontFamily": "'Dank Mono', 'monospace', monospace",
+    "workbench.colorTheme": "Monokai Operator",
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true,
+    "typescript.inlayHints.enumMemberValues.enabled": true
+}
