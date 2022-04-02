@@ -70,7 +70,19 @@ ZSH_THEME="gnzh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    archlinux
+    bgnotify
+    command-not-found
+    deno
+    extract
+    fancy-ctrl-z
+    frontend-search
+    gitfast
+    npm
+    nvm
+    yarn
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,8 +113,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ssh="kitty +kitten ssh"
-
-# NVM
-source /usr/share/nvm/init-nvm.sh
 
 source /home/me/.config/broot/launcher/bash/br
