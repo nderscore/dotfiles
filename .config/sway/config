@@ -18,6 +18,10 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+# TODO
+bar {
+    position top
+}
 # fonts
 font pango:monospace 14
 font pango:Dank Mono 14
@@ -71,10 +75,10 @@ bindsym $mod+Tab exec --no-startup-id rofi -modi window -show window
 # rofi emoji picker
 bindsym $mod+period exec --no-startup-id rofimoji
 # reload the configuration file
-bindsym $mod+Shift+c exec "~/.scripts/tiling-config-init.sh; i3-msg reload"
+bindsym $mod+Shift+c exec "~/.scripts/tiling-config-init.sh; swaymsg reload"
 
 # restart i3 in place
-bindsym $mod+Shift+r exec "~/.scripts/tiling-config-init.sh; i3-msg restart"
+bindsym $mod+Shift+r exec "~/.scripts/tiling-config-init.sh; swaymsg restart"
 # dunst notification exit nag
 bindsym $mod+Shift+e mode "exitnag"; exec dunstify -p -u critical "Are you sure you want to exit? Mod+Shift+Escape to confirm. Escape/Enter to cancel." > /tmp/exitnag
 mode "exitnag" {
