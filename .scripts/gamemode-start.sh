@@ -2,6 +2,10 @@
 #
 # Script to run when gamemode is started
 
+if [[ -f ~/.swaying ]]; then
+    export SWAYSOCK="$(cat ~/.swaying)"
+fi
+
 # enable gaming screen layout
 ~/.screenlayout/gaming.sh
 

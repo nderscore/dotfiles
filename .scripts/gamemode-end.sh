@@ -2,6 +2,10 @@
 #
 # Script to run when gamemode is stopped
 
+if [[ -f ~/.swaying ]]; then
+    export SWAYSOCK="$(cat ~/.swaying)"
+fi
+
 # restore default screen layout
 ~/.screenlayout/default.sh
 

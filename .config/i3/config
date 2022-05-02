@@ -1,6 +1,8 @@
 # DO NOT EDIT. This file is generated. Changes will be lost.
 # Edit configs in ~/tiling/config.d/*.conf instead.
 
+# track session type
+exec_always ~/.scripts/mark-session-type.sh i3
 # default mod key = win/super
 set $mod Mod4
 

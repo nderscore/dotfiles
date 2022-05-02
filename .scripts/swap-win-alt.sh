@@ -6,6 +6,8 @@
 # 
 # accepts arg of {ON/OFF/TOGGLE} to set swap state
 
+SESSION_TYPE="$(~/.scripts/get-session-type.sh)"
+
 ENABLED="$(setxkbmap -query | grep 'altwin:swap_alt_win' -c)"
 
 ACTION=$1
@@ -21,18 +23,18 @@ fi
 if [ $ACTION == "ON" ]; then
 	setxkbmap -option
 	setxkbmap -option "apple:alupckeys,altwin:swap_alt_win"
-	if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+	if [[ $SESSION_TYPE == "wayland" ]]; then
 		swaymsg "input type:keyboard xkb_options \"apple:alupckeys,altwin:swap_alt_win\""
 	fi
 else
 	setxkbmap -option
 	setxkbmap -option "apple:alupckeys"
-	if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
+	if [[ $SESSION_TYPE == "wayland" ]]; then
 		swaymsg "input type:keyboard xkb_options \"apple:alupckeys\""
 	fi
 fi
 
-if [[ $XDG_SESSION_TYPE == "x11" ]]; then
+if [[ $SESSION_TYPE == "x11" ]]; then
 	# reapply custom keymap modifications from .Xmodmap
 	cat $HOME/.Xmodmap | xmodmap -
 fi
