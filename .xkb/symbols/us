@@ -1,0 +1,7 @@
+partial modifier_keys
+xkb_symbols "rctrl_mod3" {
+    include "us(basic)"
+    key <RCTL> { [Hyper_R] };
+    modifier_map Control { Control_L };
+    modifier_map Mod3 { Hyper_R };
+};
