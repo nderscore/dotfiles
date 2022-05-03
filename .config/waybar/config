@@ -8,7 +8,7 @@
     // Choose the order of the modules
     "modules-left": ["tray","sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "memory", "temperature", "clock"],
+    "modules-right": ["disk", "pulseaudio", "cpu", "memory", "custom/gpu", "custom/weather", "clock"],
     "sway/workspaces": {
         "all-outputs": true
     },
@@ -75,26 +75,30 @@
     },
     "tray": {
         "icon-size": 16,
-        "spacing": 8
+        "spacing": 16
     },
     "clock": {
         "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%Y-%m-%d %H:%M:%S}",
+        "format-alt": "{:%H:%M:%S}"
+    },
+    "disk": {
+        "format": "<span color=\"#F0C674\">/</span> {percentage_used}%",
+        "interval": 25
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "💻 {usage}%"
     },
     "memory": {
-        "format": "{}% "
+        "format": "🐏 {percentage}%"
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""]
     },
     "backlight": {
@@ -112,35 +116,32 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "scroll-step": 5, // %, can be a float
+        "format": "🔊 {volume}%{format_source}",
+        // "format-bluetooth": "{icon} {volume}%  {format_source}",
+        // "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "🔇{format_source}",
+        "format-source": "",//"🎙️{volume}%", 
+        "format-source-muted": " 🎙️🔇",
         "format-icons": {
-            "headphone": "",
+            "headphone": "🎧",
             "hands-free": "",
-            "headset": "",
+            "headset": "🎧",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": "🔊"
         },
         "on-click": "pavucontrol"
-    }//,
-    // "custom/media": {
-    //     "format": "{icon} {}",
-    //     "return-type": "json",
-    //     "max-length": 40,
-    //     "format-icons": {
-    //         "spotify": "",
-    //         "default": "🎜"
-    //     },
-    //     "escape": true,
-    //     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-    //     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    // }
+    },
+    "custom/gpu": {
+        "format": "🎨 {}%",
+        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "interval": 10
+    },
+    "custom/weather": {
+        "exec": "curl -s 'https://wttr.in/?format=%c%t(%f)+%w'",
+        "interval": 300
+    }
 }
 
