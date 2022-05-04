@@ -84,6 +84,14 @@ bindsym $mod+period exec --no-startup-id rofimoji
 bindsym $mod+space exec --no-startup-id rofi -show drun
 # restart sway in place
 bindsym $mod+Shift+r exec "~/.scripts/tiling-config-init.sh; swaymsg reload"
+# forward certain keys to xwayland for discord
+# switch to wayland discord after this?
+# https://github.com/swaywm/sway/issues/4937
+
+bindsym Pause exec xdotool keydown Pause
+bindsym --release Pause exec xdotool keyup Pause
+bindsym --whole-window --no-repeat button9 exec xdotool keydown Scroll_Lock
+bindsym --whole-window --release button9 exec xdotool keyup Scroll_Lock
 # dunst notification exit nag
 bindsym $mod+Shift+e mode "exitnag"; exec dunstify -p -u critical "Are you sure you want to exit? Mod+Shift+Escape to confirm. Escape/Enter to cancel." > /tmp/exitnag
 mode "exitnag" {
