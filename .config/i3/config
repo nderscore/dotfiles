@@ -54,10 +54,12 @@ exec --no-startup-id systemd-run --on-calendar="*:0/10" --user -- ~/.scripts/ran
 exec_always ~/.scripts/swap-win-alt.sh OFF
 # disable titlebar
 for_window [class="^.*"] border pixel 0
+
+# 8px gaps (active state is managed by picom)
+gaps outer 0
+gaps inner 8
 # gaps
 smart_gaps on
-gaps inner 8
-gaps outer 0
 # rofi dmenu
 bindsym $mod+space exec --no-startup-id rofi -show drun
 

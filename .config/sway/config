@@ -50,10 +50,28 @@ exec_always ~/.scripts/swap-win-alt.sh OFF
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
 # gaps
 smart_gaps on
-gaps inner 8
-gaps outer 0
 # disable titlebar
-default_border pixel 0
+default_border pixel 4
+default_floating_border pixel 4
+
+# hide border on inactive (transparent)
+client.focused_inactive #ffffff00 #ffffff00 #ffffff00 #a6e22ea0 #ffffff00
+client.focused_tab_title #ffffff00 #ffffff00 #ffffff00 #a6e22ea0 #ffffff00
+client.unfocused #ffffff00 #ffffff00 #ffffff00 #a6e22ea0 #ffffff00
+
+# show border on focus
+client.focused #a6e22ea0 #ffffff00 #ffffff00 #a6e22ea0 #a6e22ea0
+
+# show border on urgent
+client.urgent #f92672 #ffffff00 #ffffff00 #a6e22ea0 #f92672
+
+# smart borders
+hide_edge_borders smart
+smart_borders on
+
+# use borders for most of the 8px gap
+gaps inner 0
+gaps outer 4
 # terminal
 bindsym $mod+Return exec kitty
 
