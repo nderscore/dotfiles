@@ -141,7 +141,7 @@
     },
     "custom/weather": {
         "exec": "curl -s 'https://wttr.in/?format=%c%t(%f)+%w'",
-        "interval": 300
+        "interval": 900
     }
 }
 
