@@ -41,9 +41,6 @@ exec_always ~/.screenlayout/default.sh
 # random wallpaper script 
 exec_always ~/.scripts/random-wallpaper.sh
 
-# systemd timer to change the wallpaper on a 10 minute interval
-exec --no-startup-id systemd-run --on-calendar="*:0/10" --user -- ~/.scripts/random-wallpaper.sh
-
 # reset keyboard layout on reload
 exec_always ~/.scripts/swap-win-alt.sh OFF
 # sway overview
