@@ -147,9 +147,9 @@ const readJSON = async () => {
                 const hourLabel = ` ${(hour.time / 100).toString().padStart(2, '0')}:`;
                 if (date === TODAY && (hour.time / 100) <= CURRENT_HOUR) {
                     const blank = '    ';
-                    return { hourLabel, icon: blank, tempF: blank, precipChance: blank };
+                    return { hourLabel, icon: '   ', tempF: blank, precipChance: blank };
                 }
-                const icon = `${WEATHER_ICONS[hour.weatherCode]} `;
+                const icon = ` ${WEATHER_ICONS[hour.weatherCode]} `;
                 const tempF = `${hour.tempF}°`.padStart(4);
                 const precipChance = `${Math.max(
                     ...[
@@ -161,7 +161,7 @@ const readJSON = async () => {
             });
 
             return `
-<b>${NAMED_DATES[date] ?? date}</b> - <b>${maxtempF}°F / ${mintempF}°F</b>
+<b>${`${NAMED_DATES[date] ?? date} - ${maxtempF}°F / ${mintempF}°F`.padStart(32)}</b>
 <u><i>${hourlyData.map(({ hourLabel }) => hourLabel).join('')}</i></u>
 ${hourlyData.map(({ tempF }) => tempF).join('')}
 ${hourlyData.map(({ precipChance }) => precipChance).join('')}
