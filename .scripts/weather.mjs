@@ -23,8 +23,8 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const TOMORROW = tomorrowD.toISOString().slice(0, 10);
 
 const NAMED_DATES = {
-    [TODAY]: `Today (${TODAY})`,
-    [TOMORROW]: `Tomorrow (${TOMORROW})`
+    [TODAY]: 'Today',
+    [TOMORROW]: 'Tomorrow'
 };
 
 const WEATHER_ICONS = {
@@ -140,7 +140,7 @@ const readJSON = async () => {
 
     const details = weather
         .map(({ date, hourly, maxtempF, mintempF }) => {
-            if (date < TODAY) { 
+            if (date < TODAY || (date === TODAY && CURRENT_HOUR >= 21)) { 
                 return '';
             }
             const hourlyData = hourly.map((hour) => {
@@ -161,7 +161,7 @@ const readJSON = async () => {
             });
 
             return `
-<b>${NAMED_DATES[date] ?? date}</b> - <b>${mintempF}°F / ${maxtempF}°F</b>
+<b>${NAMED_DATES[date] ?? date}</b> - <b>${maxtempF}°F / ${mintempF}°F</b>
 <u><i>${hourlyData.map(({ hourLabel }) => hourLabel).join('')}</i></u>
 ${hourlyData.map(({ tempF }) => tempF).join('')}
 ${hourlyData.map(({ precipChance }) => precipChance).join('')}
@@ -178,7 +178,7 @@ ${hourlyData.map(({ icon }) => icon).join('')}
 ${now.tempF}°F / ${now.tempC}°C (${now.feelsLikeF}°F / ${now.feelsLikeC}°C)
 ${now.weatherDesc}
 
-<b>Wind:</b> ${WIND_ICONS[now.winddir16Point]} ${now.windspeedMiles} mph (${now.windspeedKmph} Km/h)
+<b>Wind:</b> ${WIND_ICONS[now.winddir16Point.slice(-2)]} ${now.windspeedMiles} mph (${now.windspeedKmph} Km/h)
 <b>Humidity:</b> ${now.humidity}%
 <b>Precipitation:</b> ${now.precipInches}" (${now.precipMM}mm)
 
