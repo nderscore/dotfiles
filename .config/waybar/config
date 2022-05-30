@@ -78,10 +78,11 @@
         "spacing": 16
     },
     "clock": {
-        "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%Y-%m-%d %H:%M:%S}",
-        "format-alt": "{:%H:%M:%S}"
+        "format-alt": "{:%H:%M:%S}",
+        "interval": 5,
+        "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "disk": {
         "format": "<span color=\"#F0C674\">/</span> {percentage_used}%",
