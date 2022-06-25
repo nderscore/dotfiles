@@ -8,7 +8,7 @@
     // Choose the order of the modules
     "modules-left": ["tray","sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],
-    "modules-right": ["disk", "pulseaudio", "cpu", "memory", "custom/gpu", "custom/weather", "clock"],
+    "modules-right": ["bluetooth", "disk", "pulseaudio", "cpu", "memory", "custom/gpu", "custom/weather", "clock"],
     "sway/workspaces": {
         "all-outputs": true
     },
@@ -134,6 +134,17 @@
             "default": "🔊"
         },
         "on-click": "pavucontrol"
+    },
+    "bluetooth": {
+        "format": " ({status})",
+        "format-on": "",
+        "format-off": "",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} ({device_battery_percentage}%)",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "custom/gpu": {
         "format": "🎨 {}%",
