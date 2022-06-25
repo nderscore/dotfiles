@@ -12,7 +12,7 @@ ENABLED="$(setxkbmap -query | grep 'altwin:swap_alt_win' -c)"
 
 ACTION=$1
 
-if [ $ACTION == "TOGGLE" ]; then
+if [ -z "$ACTION" ] || [ $ACTION == "TOGGLE" ]; then
 	if [ $ENABLED == "0" ]; then
 		ACTION=ON
 	else
@@ -26,12 +26,14 @@ if [ $ACTION == "ON" ]; then
 	if [[ $SESSION_TYPE == "wayland" ]]; then
 		swaymsg "input type:keyboard xkb_options \"apple:alupckeys,altwin:swap_alt_win\""
 	fi
+	notify-send -u low "Alt-win swapped."
 else
 	setxkbmap -option
 	setxkbmap -option "apple:alupckeys"
 	if [[ $SESSION_TYPE == "wayland" ]]; then
 		swaymsg "input type:keyboard xkb_options \"apple:alupckeys\""
 	fi
+	notify-send -u low "Alt-win unswapped."
 fi
 
 if [[ $SESSION_TYPE == "x11" ]]; then
