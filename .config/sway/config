@@ -45,6 +45,9 @@ exec_always ~/.scripts/random-wallpaper.sh
 exec_always ~/.scripts/swap-win-alt.sh OFF
 # sway overview
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov
+
+# swayidle
+exec swayidle -w timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 # gaps
 smart_gaps on
 # disable titlebar
