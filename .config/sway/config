@@ -69,16 +69,6 @@ smart_borders on
 # use borders for most of the 8px gap
 gaps inner 0
 gaps outer 4
-# terminal
-bindsym $mod+Return exec kitty
-
-# rofi window switcher
-bindsym $mod+Tab exec --no-startup-id rofi -modi window -show window
-
-# rofi emoji picker
-bindsym $mod+period exec --no-startup-id rofimoji
-# rofi dmenu (TODO: wayland)
-bindsym $mod+space exec --no-startup-id rofi -show drun
 # toggle bluetooth on/off
 bindsym $rctrl+Print exec ~/.scripts/toggle-bluetooth.sh TOGGLE
 # restart sway in place
@@ -91,6 +81,10 @@ bindsym Pause exec xdotool keydown Pause
 bindsym --release Pause exec xdotool keyup Pause
 bindsym --whole-window --no-repeat button9 exec xdotool keydown Scroll_Lock
 bindsym --whole-window --release button9 exec xdotool keyup Scroll_Lock
+# rofi dmenu
+bindsym $mod+space exec --no-startup-id rofi -show drun
+# rofi emoji picker
+bindsym $mod+period exec --no-startup-id rofimoji
 # dunst notification exit nag
 bindsym $mod+Shift+e mode "exitnag"; exec dunstify -p -u critical "Are you sure you want to exit? Mod+Shift+Escape to confirm. Escape/Enter to cancel." > /tmp/exitnag
 mode "exitnag" {
@@ -138,6 +132,8 @@ bindsym $mod+r exec dunstify -u low "Resize mode enabled."; mode "resize"
 bindsym Print exec grim - | wl-copy
 bindsym $mod+Print exec grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | wl-copy
 bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+# kitty terminal
+bindsym $mod+Return exec kitty
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

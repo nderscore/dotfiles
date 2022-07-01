@@ -57,17 +57,6 @@ gaps outer 0
 gaps inner 8
 # gaps
 smart_gaps on
-# rofi dmenu
-bindsym $mod+space exec --no-startup-id rofi -show drun
-
-# terminal
-bindsym $mod+Return exec kitty
-
-# rofi window switcher
-bindsym $mod+Tab exec --no-startup-id rofi -modi window -show window
-
-# rofi emoji picker
-bindsym $mod+period exec --no-startup-id rofimoji
 # toggle bluetooth on/off
 bindsym $rctrl+Print exec ~/.scripts/toggle-bluetooth.sh TOGGLE
 # reload the configuration file
@@ -75,6 +64,10 @@ bindsym $mod+Shift+c exec "~/.scripts/tiling-config-init.sh; i3-msg reload"
 
 # restart i3 in place
 bindsym $mod+Shift+r exec "~/.scripts/tiling-config-init.sh; i3-msg restart"
+# rofi dmenu
+bindsym $mod+space exec --no-startup-id rofi -show drun
+# rofi emoji picker
+bindsym $mod+period exec --no-startup-id rofimoji
 # dunst notification exit nag
 bindsym $mod+Shift+e mode "exitnag"; exec dunstify -p -u critical "Are you sure you want to exit? Mod+Shift+Escape to confirm. Escape/Enter to cancel." > /tmp/exitnag
 mode "exitnag" {
@@ -122,12 +115,16 @@ bindsym $mod+r exec dunstify -u low "Resize mode enabled."; mode "resize"
 bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f && rm $f'"
 bindsym $mod+Print --release exec "scrot -u '%Y-%m-%d_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f && rm $f'"
 bindsym $mod+Shift+s --release exec "scrot -fs '%Y-%m-%d_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f && rm $f'"
+# kitty terminal
+bindsym $mod+Return exec kitty
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# rofi window switcher
+bindsym $mod+Tab exec --no-startup-id rofi -modi window -show window
 # kill focused window
 bindsym $mod+Shift+q kill
 
