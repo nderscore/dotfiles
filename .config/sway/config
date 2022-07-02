@@ -69,6 +69,8 @@ smart_borders on
 # use borders for most of the 8px gap
 gaps inner 0
 gaps outer 4
+# prevent swayidle while steam games are open
+for_window [class="steam_app*"] inhibit_idle focus
 # toggle bluetooth on/off
 bindsym $rctrl+Print exec ~/.scripts/toggle-bluetooth.sh TOGGLE
 # restart sway in place
