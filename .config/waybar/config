@@ -6,9 +6,9 @@
     // "width": 1280, // Waybar width
     "spacing": 8, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["tray","sway/workspaces", "sway/mode", "sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],
-    "modules-right": ["bluetooth", "disk", "pulseaudio", "cpu", "memory", "custom/gpu", "custom/weather", "clock"],
+    "modules-right": ["bluetooth", "custom/mousebattery", "disk", "pulseaudio", "cpu", "memory", "custom/gpu", "custom/weather", "tray", "clock"],
     "sway/workspaces": {
         "all-outputs": true
     },
@@ -150,6 +150,10 @@
         "format": "🎨 {}%",
         "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
         "interval": 10
+    },
+    "custom/mousebattery": {
+        "exec": "upower --dump | ~/.scripts/mouse-battery.mjs",
+        "interval": 900
     },
     "custom/weather": {
         "exec": "curl -s 'https://wttr.in/?format=j1' | ~/.scripts/weather.mjs",
