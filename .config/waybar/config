@@ -147,8 +147,7 @@
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "custom/gpu": {
-        "format": "🎨 {}%",
-        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent",
+        "exec": "~/.scripts/gpu-stats.sh",
         "interval": 10
     },
     "custom/mousebattery": {
