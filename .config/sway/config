@@ -79,6 +79,8 @@ for_window {
   [app_id="firefox"] inhibit_idle fullscreen
   [class="firefox"] inhibit_idle fullscreen
 }
+# prevent chrome PWA windows from inhibiting shortcuts
+for_window [app_id="^chrome-.*"] shortcuts_inhibitor disable
 # toggle bluetooth on/off
 bindsym $rctrl+Print exec ~/.scripts/toggle-bluetooth.sh TOGGLE
 # restart sway in place
