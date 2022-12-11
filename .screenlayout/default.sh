@@ -15,4 +15,5 @@ if [[ $SESSION_TYPE == "x11" ]]; then
 elif [[ $SESSION_TYPE == "wayland" ]]; then
     swaymsg output DP-2 mode 2560x1440@144Hz pos 0 0
     swaymsg output HDMI-A-1 mode 1920x1080 pos 2560 360
+    swaymsg output \* max_render_time off
 fi
