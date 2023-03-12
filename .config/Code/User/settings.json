@@ -1,11 +1,12 @@
 {
-    "editor.fontFamily": "'Dank Mono', 'monospace', monospace",
-    "editor.fontSize": 13,
-    "editor.fontLigatures": true,
-    "editor.inlineSuggest.enabled": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.codeLens.scopes": [],
-    "workbench.colorTheme": "Monokai Operator"
+  "editor.fontFamily": "'Dank Mono', 'monospace', monospace",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "editor.indentSize": 2,
+  "editor.inlineSuggest.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.scopes": [],
+  "workbench.colorTheme": "Monokai Operator"
 }
