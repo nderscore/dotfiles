@@ -20,7 +20,7 @@ const readStdin = () =>
     const stdin = await readStdin();
 
     const groups = stdin.split('\n\n');
-    const mouseGroup = groups.find((group) => /model:\s+Gaming Mouse/.test(group));
+    const mouseGroup = groups.find((group) => /model:.+Gaming Mouse/.test(group));
 
     if (!mouseGroup) {
         return;
