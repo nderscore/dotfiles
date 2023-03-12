@@ -35,6 +35,9 @@ font pango:Dank Mono 14
 # dunst notification daemon
 exec --no-startup-id dunst
 
+# spawn tray instance of udiskie
+exec udiskie --tray
+
 # set default screen layout on load and refresh
 exec_always ~/.screenlayout/default.sh
 
