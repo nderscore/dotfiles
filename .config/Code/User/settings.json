@@ -3,10 +3,35 @@
   "editor.fontSize": 13,
   "editor.fontLigatures": true,
   "editor.indentSize": 2,
+  "editor.tabSize": 2,
   "editor.inlineSuggest.enabled": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.codeLens.scopes": [],
-  "workbench.colorTheme": "Monokai Operator"
+  "workbench.colorTheme": "Monokai Operator",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "typescript.tsserver.log": "off",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.gitProtocol": "ssh",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "window.menuBarVisibility": "visible",
+  "editor.minimap.enabled": false
 }

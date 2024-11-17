@@ -48,6 +48,10 @@ exec_always ~/.scripts/random-wallpaper.sh
 exec_always ~/.scripts/swap-win-alt.sh OFF
 # swayidle
 exec swayidle -w timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+
+# ibus daemon
+exec ibus-daemon -drx
+
 # gaps
 smart_gaps on
 # disable titlebar
@@ -111,12 +115,14 @@ mode "exitnag" {
 floating_modifier $mod
 
 # toggle tiling / floating
-bindsym $mod+Shift+BackSpace floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+BackSpace focus mode_toggle
+bindsym $mod+Shift+BackSpace focus mode_toggle
 # toggle keyboard layout (swap alt/win keys)
 bindsym Control+Shift+Escape exec ~/.scripts/swap-win-alt.sh TOGGLE
+
+bindsym $mod+BackSpace exec ~/.scripts/toggle-lang.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

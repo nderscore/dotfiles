@@ -6,7 +6,7 @@ if [[ -f ~/.swaying ]]; then
     export SWAYSOCK="$(cat ~/.swaying)"
 fi
 
-DS4_ID="$(bluetoothctl paired-devices | grep -Po '[[:alnum:]]{2}(:[[:alnum:]]{2})+(?= DualShock4)')"
+DS4_ID="$(bluetoothctl devices Paired | grep -Po '[[:alnum:]]{2}(:[[:alnum:]]{2})+(?= DualShock4)')"
 CONTROLLER_CONNECTED="$(bluetoothctl info $DS4_ID | grep -c 'Connected: yes')"
 
 # enable screen & keyboard modifications only if game controller is not connected
